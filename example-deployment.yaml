@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: demo-application
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: manifold-secrets
+              key: DB_USERNAME
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: manifold-secrets
+              key: DB_PASSWORD
+        - name: DB_ADDRESS
+          valueFrom:
+            secretKeyRef:
+              name: manifold-secrets
+              key: DB_ADDRESS
+      restartPolicy: Always
+status: {}
