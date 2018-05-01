@@ -18,4 +18,6 @@ resource "aws_db_instance" "postgres" {
   name     = "terraformkubernetes"
   username = "${var.db_username}"
   password = "${random_string.root_password.result}"
+
+  skip_final_snapshot = true
 }
