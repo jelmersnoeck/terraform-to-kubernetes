@@ -2,3 +2,6 @@
 provider.tf
 .terraform/
 *.tfstate*
+
+# Vault
+unseal-keys
